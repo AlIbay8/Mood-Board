@@ -21,7 +21,7 @@ var excited = {
 };
 
 var mad = {
-    Keys: ["mad", "angry", "furious", "aggravate", "fuming", "vexed", "exasperated", "frustrated"],
+    Keys: ["mad", "angry", "furious", "aggravate", "fuming", "vexed", "exasperated", "frustrate", "frustrating"],
     Imgs: ["https://i.ytimg.com/vi/EPu1aVJiyoE/maxresdefault.jpg", "https://i.kym-cdn.com/photos/images/newsfeed/001/068/225/2a0.png", "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3c6090b4-c181-4717-9483-e57e9a28f609/d9q6eq6-2cf8ccab-193c-48b9-a66d-714bbd3d8c1e.png/v1/fill/w_1192,h_670,q_70,strp/koro_sensei__extreme_anger__by_ovieswifty_d9q6eq6-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA4MCIsInBhdGgiOiJcL2ZcLzNjNjA5MGI0LWMxODEtNDcxNy05NDgzLWU1N2U5YTI4ZjYwOVwvZDlxNmVxNi0yY2Y4Y2NhYi0xOTNjLTQ4YjktYTY2ZC03MTRiYmQzZDhjMWUucG5nIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.2bqQSJ6woTB_rjngX-0hkhROC2PVlMei6cFms8XFPoU"]
 };
 var infuriating = {

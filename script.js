@@ -1,4 +1,5 @@
 // If mood not found, display Kerosene: http://images6.fanpop.com/image/photos/39700000/-Koro-sensei-s-Many-Faces-ansatsu-kyoushitsu-39732605-400-400.gif
+var found = false;
 
 var happy = {
     Keys: ["happy", "great", "good", "content", "cheer", "merry", "jolly", "glee"],
@@ -20,7 +21,7 @@ var excited = {
 };
 
 var mad = {
-    Keys: ["mad", "angry", "furious", "aggravate", "fuming", "vexed", "exasperated"],
+    Keys: ["mad", "angry", "furious", "aggravate", "fuming", "vexed", "exasperated", "frustrated"],
     Imgs: ["https://i.ytimg.com/vi/EPu1aVJiyoE/maxresdefault.jpg", "https://i.kym-cdn.com/photos/images/newsfeed/001/068/225/2a0.png", "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3c6090b4-c181-4717-9483-e57e9a28f609/d9q6eq6-2cf8ccab-193c-48b9-a66d-714bbd3d8c1e.png/v1/fill/w_1192,h_670,q_70,strp/koro_sensei__extreme_anger__by_ovieswifty_d9q6eq6-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA4MCIsInBhdGgiOiJcL2ZcLzNjNjA5MGI0LWMxODEtNDcxNy05NDgzLWU1N2U5YTI4ZjYwOVwvZDlxNmVxNi0yY2Y4Y2NhYi0xOTNjLTQ4YjktYTY2ZC03MTRiYmQzZDhjMWUucG5nIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.2bqQSJ6woTB_rjngX-0hkhROC2PVlMei6cFms8XFPoU"]
 };
 var infuriating = {
@@ -39,65 +40,84 @@ var scared = {
 
 $(".submit").click(function() {
     var mood = $("input").val().toLowerCase();
+    found = false;
     
     if (mood !== "") {
-        happy["Keys"].forEach(function(keyword) {
-            if (mood.includes(keyword)) {
-                happyMood();   
+        if (!found) {
+            happy["Keys"].forEach(function(keyword) {
+                if (mood.includes(keyword)) {
+                    happyMood();   
+                }
+            });
+        }
+        
+        if (!found) {
+            sad["Keys"].forEach(function(keyword) {
+                if (mood.includes(keyword)) {
+                    sadMood();   
+                }
+            });
+        }
+        
+        if (!found) {
+            hungry["Keys"].forEach(function(keyword) {
+                if (mood.includes(keyword)) {
+                    hungryMood();   
+                }
+            });
+        }
+        
+        if (!found) {
+            excited["Keys"].forEach(function(keyword) {
+                if (mood.includes(keyword)) {
+                    excitedMood();   
+                }
+            });
+        }
+        
+        if (!found) {
+            mad["Keys"].forEach(function(keyword) {
+                if (mood.includes(keyword)) {
+                    madMood();   
+                }
+            });
+        }
+            
+        if (!found) {    
+            infuriating["Keys"].forEach(function(keyword) {
+                if (mood.includes(keyword)) {
+                    infuriatingMood();   
+                }
+            });
+        }
+        
+        if (!found) {
+            tired["Keys"].forEach(function(keyword) {
+                if (mood.includes(keyword)) {
+                    tiredMood();   
+                }
+            });
+        }
+        
+        if (!found) {
+            scared["Keys"].forEach(function(keyword) {
+                if (mood.includes(keyword)) {
+                    scaredMood();   
+                }
+            });
+        }
+        
+        if (!found) {
+            if (mood !== "") {
+                $(".output").html("<div><img src='" + "http://images6.fanpop.com/image/photos/39700000/-Koro-sensei-s-Many-Faces-ansatsu-kyoushitsu-39732605-400-400.gif" + "'><p>It seems that we couldn't find your mood. So here's a bunch of different moods.</p></div>");
+                changeBackground("white");
             }
-        });
-        
-        sad["Keys"].forEach(function(keyword) {
-            if (mood.includes(keyword)) {
-                sadMood();   
-            }
-        });
-        
-        hungry["Keys"].forEach(function(keyword) {
-            if (mood.includes(keyword)) {
-                hungryMood();   
-            }
-        });
-        
-        excited["Keys"].forEach(function(keyword) {
-            if (mood.includes(keyword)) {
-                excitedMood();   
-            }
-        });
-        
-        mad["Keys"].forEach(function(keyword) {
-            if (mood.includes(keyword)) {
-                madMood();   
-            }
-        });
-        
-        infuriating["Keys"].forEach(function(keyword) {
-            if (mood.includes(keyword)) {
-                infuriatingMood();   
-            }
-        });
-        
-        tired["Keys"].forEach(function(keyword) {
-            if (mood.includes(keyword)) {
-                tiredMood();   
-            }
-        });
-        
-        scared["Keys"].forEach(function(keyword) {
-            if (mood.includes(keyword)) {
-                scaredMood();   
-            }
-        });
-        
-        var output = $(".output").html();
-        
-        if (output === "" && mood !== "") {
-            $(".output").html("<div><img src='" + "http://images6.fanpop.com/image/photos/39700000/-Koro-sensei-s-Many-Faces-ansatsu-kyoushitsu-39732605-400-400.gif" + "'><p>It seems that we couldn't find your mood. So here's a bunch of different moods.</p></div>");
         }
     }
 });
 
 function happyMood() {
+    found = true;
     $(".output").html("");
     changeBackground("yellow");
     
@@ -107,6 +127,7 @@ function happyMood() {
 }
 
 function sadMood() {
+    found = true;
     $(".output").html("");
     changeBackground("#204ec1");
     
@@ -116,6 +137,7 @@ function sadMood() {
 }
 
 function hungryMood() {
+    found = true;
     $(".output").html("");
     changeBackground("orange");
     
@@ -125,6 +147,7 @@ function hungryMood() {
 }
 
 function excitedMood() {
+    found = true;
     $(".output").html("");
     changeBackground("cyan");
     
@@ -134,6 +157,7 @@ function excitedMood() {
 }
 
 function madMood() {
+    found = true;
     $(".output").html("");
     changeBackground("red");
     
@@ -143,6 +167,7 @@ function madMood() {
 }
 
 function infuriatingMood() {
+    found = true;
     $(".output").html("");
     changeBackground("red");
     
@@ -152,6 +177,7 @@ function infuriatingMood() {
 }
 
 function tiredMood() {
+    found = true;
     $(".output").html("");
     changeBackground("gray");
     
@@ -161,6 +187,7 @@ function tiredMood() {
 }
 
 function scaredMood() {
+    found = true;
     $(".output").html("");
     changeBackground("darkred");
     
